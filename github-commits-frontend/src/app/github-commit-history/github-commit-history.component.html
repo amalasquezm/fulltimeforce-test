@@ -1,0 +1,15 @@
+<ng-container *ngIf="{ commitHistory: (commitHistory$ | async), isLoading: (commitHistoryLoading$ | async)} as viewData">
+  <div class="github-commit-history-container">
+    <div>
+      <github-search-options (search)="search($event)"></github-search-options>
+    </div>
+    
+    <div *ngIf="!viewData.isLoading, else loading" class="search-content">
+      <github-commit-thumbnail *ngFor="let githubCommit of viewData.commitHistory" [githubCommit]="githubCommit"></github-commit-thumbnail>
+    </div>
+
+    <ng-template #loading>
+      loading...
+    </ng-template>  
+  </div>
+</ng-container>

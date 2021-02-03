@@ -1,0 +1,16 @@
+<div fxLayout="column" fxLayoutAlign="space-around center" fxFlex="100" fxLayoutGap="5%">
+  <form [formGroup]="seachOptionsForm" class="search-options-form" (ngSubmit)="performSearch()" fxLayout="row" fxFlexAlign="center" fxLayoutAlign="center" fxLayoutGap="5%" fxFlex="100">
+    <mat-form-field fxFlex="35">
+      <mat-label>Github User</mat-label>
+      <input matInput formControlName="username">
+    </mat-form-field>
+
+    <mat-form-field fxFlex="35">
+      <mat-label>Repository</mat-label>
+      <input matInput placeholder="Repository" formControlName="repository">
+    </mat-form-field>
+
+    <button fxFlex="20" mat-flat-button class="search-options-submit" color="primary" type="submit" [disabled]="!seachOptionsForm.valid">Search</button>
+  </form>
+</div>
+

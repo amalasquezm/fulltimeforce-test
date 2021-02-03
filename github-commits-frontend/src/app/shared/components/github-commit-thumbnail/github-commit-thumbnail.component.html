@@ -1,0 +1,27 @@
+<div *ngIf="githubCommit" class="flexbox p-t-30">
+  <div class="fixed-column align-right">
+    <img src="{{ githubCommit.avatarURL }}" />
+  </div>
+  <div class="truncated-column">
+    <div class="p-t-5">
+      <span class="title">Author: </span>
+      <span class="info">{{ githubCommit.authorName }}</span>
+    </div>
+    <div class="p-t-5">
+      <span class="title">Author Email: </span>
+      <span class="info">{{ githubCommit.authorEmail }}</span>
+    </div>
+    <div class="p-t-5">
+      <span class="title">Message: </span>
+      <span class="info">{{ githubCommit.message }}</span>
+    </div>
+    <div class="p-t-5">
+      <span class="title">Github URL: </span>
+      <span class="info">{{ githubCommit.htmlURL }}</span>
+    </div>
+    <div class="p-t-5">
+      <span class="title">Date: </span>
+      <span class="info">{{ githubCommit.date | date : 'short' }}</span>
+    </div>
+  </div>
+</div>

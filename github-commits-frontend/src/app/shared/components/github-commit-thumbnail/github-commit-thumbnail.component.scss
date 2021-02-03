@@ -1,0 +1,42 @@
+.flexbox {
+  display: flex;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.info {
+  font-size: 14px;
+}
+
+.fixed-column {
+  min-width: 30%;
+  flex: 0 0 30%;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.truncated-column {
+  overflow: hidden;
+  min-width: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+img {
+  width: 125px;
+  height: 125px;
+  margin-right: 45px;
+}
+
+.p-t-5 {
+  padding-top: 5px;
+}
+
+.p-t-30 {
+  padding-top: 30px;
+}
