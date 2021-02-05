@@ -15,12 +15,20 @@ Added unit tests to cover the 100% of the GithubCommitsService functionality. To
 Run `docker-compose up` to run both backend and frontend projects, then go to `http://localhost:8080/` .
 
 ## Run each projects 
-If containers fail, then run the backend projects. 
+If containers fail, then run each project individually. 
 
 ### Run backend
-Go to github-commits-backend folder: cd github-commits-backend
-Run the project: npm start
+```sh
+cd github-commits-backend
+npm i
+npm start
+```
 
 ### Run frontend
-Go to github-commits-frontend folder: cd github-commits-frontend
-Run the project: npm start
+```sh
+cd github-commits-frontend
+npm i
+npm start
+```
+
+Then open the browser: [http://localhost:4200/](http://localhost:4200/)
