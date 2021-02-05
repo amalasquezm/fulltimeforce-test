@@ -1,9 +1,8 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
 import { GithubCommitHistoryComponent } from './github-commit-history.component';
+import { TestingModule } from '../testing/testing.module';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('GithubCommitHistoryComponent', () => {
   let component: GithubCommitHistoryComponent;
@@ -11,6 +10,10 @@ describe('GithubCommitHistoryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        TestingModule,
+        RouterTestingModule.withRoutes([]),
+      ],
       declarations: [ GithubCommitHistoryComponent ]
     })
     .compileComponents();
