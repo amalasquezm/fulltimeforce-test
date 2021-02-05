@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  backend:
+    image: github-commits-nestjs
+    build: 
+      context: github-commits-backend
+    ports: 
+      - "3000:3000"
+  frontend:
+    image: github-commits-angular
+    build: 
+      context: github-commits-frontend
+    ports: 
+      - "8080:80"
