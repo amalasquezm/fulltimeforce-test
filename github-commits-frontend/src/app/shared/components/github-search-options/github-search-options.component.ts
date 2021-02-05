@@ -11,7 +11,7 @@ export class GithubSearchOptionsComponent implements OnInit {
   readonly textMaxLength = 100; 
   seachOptionsForm: FormGroup = new FormGroup({
     username : new FormControl('amalasquezm', [Validators.required, Validators.maxLength(this.textMaxLength)]),    
-    repository : new FormControl('number8-ui-exercise', [Validators.required, Validators.maxLength(this.textMaxLength)])
+    repository : new FormControl('fulltimeforce-test', [Validators.required, Validators.maxLength(this.textMaxLength)])
   });
   @Output() search = new EventEmitter<GithubSearchOptions>();
 
@@ -22,8 +22,7 @@ export class GithubSearchOptionsComponent implements OnInit {
 
   performSearch() {
     const { username, repository } = this.seachOptionsForm.value;
-    console.log(username, repository);
+
     this.search.emit({ username,  repository})
   }
-
 }

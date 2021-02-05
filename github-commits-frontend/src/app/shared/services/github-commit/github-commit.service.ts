@@ -1,10 +1,11 @@
 import { GithubCommit } from './../../models/github-commit.model';
 import { GithubSearchOptions } from './../../models/github-search-options.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { GithubCommitResponse } from '../../models/github-commit-response.model';
+import { config } from '../../core/config';
 
 @Injectable({
   providedIn: 'root'
@@ -19,12 +20,12 @@ export class GithubCommitService {
 
   getCommitHistory(githubSearchOptions: GithubSearchOptions): void {
     this.commitHistoryLoading$.next(true);
+    const options = { params: new HttpParams({fromString: `user=${githubSearchOptions.username}&repository=${githubSearchOptions.repository}`}) };
 
-    this.http.get<GithubCommitResponse[]>(`https://api.github.com/repos/${githubSearchOptions.username}/${githubSearchOptions.repository}/commits`)
+    this.http.get<GithubCommitResponse[]>(`${config.urls.customGithubAPI}/v1/github-commits`, options)
       .pipe(
         tap((commitHistory: GithubCommitResponse[]) => {
           const githubCommits = this.convertGithubCommitResponseToGithubCommit(commitHistory);
-          console.log('githubCommits', githubCommits);
           this.commitHistory$.next(githubCommits);
           this.commitHistoryLoading$.next(false);
         })
@@ -32,7 +33,6 @@ export class GithubCommitService {
   }
 
   convertGithubCommitResponseToGithubCommit(githubCommitResponses: GithubCommitResponse[]): GithubCommit[] {
-    console.log('githubCommitResponses', githubCommitResponses);
     const githubCommits = githubCommitResponses.map((githubCommitResponse: GithubCommitResponse) => {
       return {
         authorName: githubCommitResponse.commit.author.name,

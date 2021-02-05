@@ -20,7 +20,6 @@ export class GithubCommitHistoryComponent implements OnInit {
 
   search(githubSearchOptions: GithubSearchOptions): void {
     this.githubCommitService.getCommitHistory(githubSearchOptions);
-    console.log(githubSearchOptions);
   }
 
 }
